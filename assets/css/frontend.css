@@ -1,0 +1,760 @@
+/**
+ * Core Events Pro - Frontend Stylesheet
+ * 
+ * This file contains the CSS styles for the plugin's frontend interfaces,
+ * including the hero sections, calendar grids, event lists, sub-events, and modals.
+ * All classes are prefixed with `cep-` to ensure CSS scoping and prevent conflicts
+ * with the active WordPress theme.
+ * 
+ * @package CoreEventsPro\Assets
+ * @since 4.0.0
+ */
+
+/* ==========================================================================
+   1. Global Variables & Typography
+   ========================================================================== */
+
+:root {
+    --cep-accent: #2563eb;
+    --cep-dark: #1e293b;
+    --cep-gray: #f8fafc;
+    --cep-border: #e2e8f0;
+    --cal-bg: #ffffff;
+    --cal-border: #eef2f6; /* Very soft border color */
+    --cal-text: #1e293b;
+    --cal-text-light: #94a3b8;
+    --cal-accent: #3b82f6; /* Primary Calendar Color */
+    --cal-today-bg: #eff6ff;
+    --cal-hover: #f8fafc;
+}
+
+.cep-page-wrapper {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* ==========================================================================
+   2. Hero Section (Full Width)
+   ========================================================================== */
+
+.cep-modern-hero {
+    position: relative;
+    width: 100%;
+    height: 400px; /* Base hero height */
+    background: #1e1e24;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 50px;
+}
+
+.cep-hero-bg {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background-size: cover; background-position: center; opacity: 0.6;
+}
+
+.cep-hero-overlay {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 100%);
+}
+
+.cep-hero-container {
+    position: relative; z-index: 5; max-width: 900px; padding: 20px;
+}
+
+.cep-hero-title {
+    font-size: 3.5rem; margin: 15px 0; font-weight: 800; line-height: 1.2; text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.cep-hero-meta { font-size: 1.3rem; opacity: 0.9; margin-top: 10px; }
+
+.cep-badge-lg {
+    background: var(--cep-accent); padding: 6px 16px; border-radius: 50px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem;
+}
+
+/* ==========================================================================
+   3. Content Container (Centered)
+   ========================================================================== */
+
+.cep-content-container {
+    max-width: 1000px; /* Maximum content width */
+    margin: 0 auto; /* Center alignment */
+    padding: 0 20px 60px 20px;
+}
+
+.cep-section { margin-bottom: 60px; }
+
+.cep-section-title {
+    font-size: 1.8rem; border-left: 5px solid var(--cep-accent); padding-left: 15px; margin-bottom: 25px; color: var(--cep-dark);
+}
+
+/* ==========================================================================
+   4. Timeline List (Sub Events)
+   ========================================================================== */
+
+.cep-timeline-item {
+    display: flex; gap: 20px; background: #fff; border: 1px solid var(--cep-border);
+    padding: 20px; border-radius: 12px; margin-bottom: 15px; transition: transform 0.2s, box-shadow 0.2s;
+    align-items: center;
+}
+
+.cep-timeline-item:hover { transform: translateY(-3px); box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1); border-color: var(--cep-accent); }
+
+.cep-tl-date {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    background: var(--cep-gray); width: 80px; height: 80px; border-radius: 10px; flex-shrink: 0;
+}
+
+.cep-tl-date .day { font-size: 1.8rem; font-weight: bold; color: var(--cep-accent); line-height: 1; }
+
+.cep-tl-date .month { font-size: 0.8rem; text-transform: uppercase; font-weight: bold; }
+
+.cep-tl-date .time { font-size: 0.75rem; margin-top: 3px; color: #666; }
+
+.cep-tl-content { flex-grow: 1; }
+
+.cep-tl-content h3 { margin: 0 0 8px 0; font-size: 1.3rem; }
+
+.cep-tl-content h3 a { text-decoration: none; color: var(--cep-dark); }
+
+.cep-tl-excerpt { color: #64748b; font-size: 0.95rem; }
+
+.cep-btn-view {
+    padding: 10px 20px; background: #fff; border: 2px solid var(--cep-border); border-radius: 8px;
+    text-decoration: none; color: var(--cep-dark); font-weight: 600; transition: 0.2s; white-space: nowrap;
+}
+
+.cep-btn-view:hover { background: var(--cep-dark); color: #fff; border-color: var(--cep-dark); }
+
+/* ==========================================================================
+   5. Video Responsive Container
+   ========================================================================== */
+
+.cep-video-responsive { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+.cep-video-responsive iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+/* ==========================================================================
+   6. Gallery Masonry
+   ========================================================================== */
+
+.cep-gallery-masonry { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; }
+
+.cep-gallery-thumb img { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; transition: transform 0.3s; }
+
+.cep-gallery-thumb:hover img { transform: scale(1.03); }
+
+/* ==========================================================================
+   7. Shortcodes Styles
+   ========================================================================== */
+
+/* Next Event Card */
+.cep-next-event-card {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    color: #fff; padding: 40px; border-radius: 16px; text-align: center; margin: 30px 0;
+}
+
+.cep-ne-label { color: #38bdf8; font-weight: bold; text-transform: uppercase; margin-bottom: 10px; letter-spacing: 1px; }
+
+.cep-ne-content h2 a { color: #fff; text-decoration: none; font-size: 2.2rem; }
+
+.cep-ne-date { font-size: 1.2rem; margin: 15px 0 25px 0; opacity: 0.8; }
+
+.cep-btn-glow {
+    display: inline-block; padding: 12px 30px; background: #2563eb; color: #fff; border-radius: 50px;
+    text-decoration: none; font-weight: bold; box-shadow: 0 0 20px rgba(37, 99, 235, 0.5); transition: 0.3s;
+}
+
+.cep-btn-glow:hover { transform: scale(1.05); box-shadow: 0 0 30px rgba(37, 99, 235, 0.7); }
+
+/* Grouped List */
+.cep-grouped-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 30px; }
+
+@media (max-width: 768px) { .cep-grouped-wrapper { grid-template-columns: 1fr; } }
+
+.cep-group-title { font-size: 1.4rem; border-bottom: 2px solid #eee; padding-bottom: 10px; margin-bottom: 20px; }
+
+.cep-group-title.upcoming { color: var(--cep-accent); border-color: var(--cep-accent); }
+
+.cep-group-title.past { color: #64748b; }
+
+.cep-list-styled .cep-list-item {
+    display: flex; align-items: center; padding: 12px 0; border-bottom: 1px solid #f1f5f9;
+}
+
+.cep-list-styled .cep-list-item .date {
+    font-weight: bold; color: var(--cep-dark); width: 60px; flex-shrink: 0;
+}
+
+.cep-list-styled .cep-list-item a { text-decoration: none; color: #475569; transition: 0.2s; }
+
+.cep-list-styled .cep-list-item a:hover { color: var(--cep-accent); padding-left: 5px; /* RTL Note: Ensure logical padding if RTL is active */ }
+
+/* ==========================================================================
+   8. Sub Event Page Styling (New)
+   ========================================================================== */
+
+.cep-sub-header { background: #f8fafc; border-bottom: 1px solid #e2e8f0; padding: 15px 0; }
+
+.cep-back-link { text-decoration: none; color: #64748b; font-weight: 600; display: flex; align-items: center; gap: 5px; font-size: 0.9rem; }
+
+.cep-back-link:hover { color: var(--cep-accent); }
+
+.cep-sub-hero { padding: 40px 0; background: #fff; border-bottom: 1px solid #f1f5f9; }
+
+.cep-label-session { background: #e0f2fe; color: #0284c7; padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px; }
+
+.cep-sub-title { font-size: 2.5rem; margin: 15px 0; color: #1e293b; line-height: 1.2; }
+
+.cep-sub-meta { display: flex; gap: 20px; color: #64748b; font-size: 1.1rem; }
+
+/* Grid Layout for Sub Page */
+.cep-grid-layout { display: grid; grid-template-columns: 2fr 1fr; gap: 40px; margin-top: 40px; }
+
+@media(max-width: 768px) { .cep-grid-layout { grid-template-columns: 1fr; } }
+
+.cep-section-box { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 25px; margin-bottom: 30px; }
+
+.cep-section-box.no-pad { padding: 0; overflow: hidden; border: none; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+
+.cep-box-title { margin-top: 0; border-bottom: 2px solid #f1f5f9; padding-bottom: 15px; margin-bottom: 20px; font-size: 1.2rem; }
+
+.cep-text-content { line-height: 1.7; color: #334155; }
+
+/* Sidebar Card */
+.cep-info-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; position: sticky; top: 20px; }
+
+.cep-session-thumb img { width: 100%; height: auto; display: block; }
+
+.cep-info-body { padding: 20px; }
+
+.cep-info-body h4 { margin-top: 0; }
+
+.cep-info-body ul { list-style: none; padding: 0; margin: 0 0 20px 0; }
+
+.cep-info-body li { padding: 10px 0; border-bottom: 1px solid #f1f5f9; font-size: 0.95rem; color: #475569; }
+
+.cep-info-body li strong { color: #1e293b; width: 100px; display: inline-block; }
+
+.cep-btn-block { display: block; text-align: center; background: var(--cep-dark); color: #fff; padding: 12px; border-radius: 6px; text-decoration: none; font-weight: bold; }
+
+.cep-btn-block:hover { background: #334155; }
+
+/* --- Sub Event List inside Main Event (The new Cards) --- */
+.cep-timeline-wrapper { display: flex; flex-direction: column; gap: 15px; }
+
+.cep-sub-card {
+    display: flex; align-items: center; background: #fff; border: 1px solid #e2e8f0; border-radius: 12px;
+    padding: 15px 20px; transition: transform 0.2s, border-color 0.2s;
+}
+
+.cep-sub-card:hover { transform: translateY(-3px); border-color: var(--cep-accent); box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+
+.cep-sc-date {
+    background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; width: 60px; height: 60px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; margin-right: 20px; flex-shrink: 0;
+}
+
+.cep-sc-date .d { font-size: 1.4rem; font-weight: bold; color: var(--cep-accent); line-height: 1; }
+
+.cep-sc-date .m { font-size: 0.7rem; text-transform: uppercase; font-weight: 700; color: #64748b; margin-top: 2px; }
+
+.cep-sc-details { flex-grow: 1; }
+
+.cep-sc-meta { font-size: 0.8rem; color: #94a3b8; font-weight: 600; margin-bottom: 4px; text-transform: uppercase; }
+
+.cep-sc-title { margin: 0 0 5px 0; font-size: 1.15rem; }
+
+.cep-sc-title a { text-decoration: none; color: #1e293b; transition: color 0.2s; }
+
+.cep-sc-title a:hover { color: var(--cep-accent); }
+
+.cep-sc-excerpt { font-size: 0.9rem; color: #64748b; }
+
+.cep-sc-action { margin-left: 15px; }
+
+.cep-btn-arrow {
+    width: 40px; height: 40px; border-radius: 50%; background: #f1f5f9; color: #1e293b;
+    display: flex; align-items: center; justify-content: center; text-decoration: none; transition: 0.2s;
+}
+
+/* ==========================================================================
+   9. New Calendar Design
+   ========================================================================== */
+
+/* Main Container */
+.cep-calendar-wrapper {
+    background: var(--cal-bg);
+    border: 1px solid var(--cal-border);
+    border-radius: 16px; /* More rounded corners */
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05); /* Very soft shadow */
+    overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    margin: 30px 0;
+}
+
+/* Header (Controls) */
+.cep-cal-controls {
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--cal-border);
+    background: #fff;
+}
+
+.cep-cal-controls h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--cal-text);
+    letter-spacing: -0.5px;
+}
+
+/* Navigation Buttons */
+.cep-nav-group { display: flex; gap: 8px; }
+
+.cep-nav-btn {
+    background: var(--cal-accent);
+    border: 1px solid var(--cal-border);
+    border-radius: 8px;
+    padding: 8px 16px;
+    cursor: pointer;
+    color: white;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cep-nav-btn:hover {
+    background: var(--cal-hover);
+    border-color: black;
+    transform: translateY(-1px);
+    color: #000;
+}
+
+/* Days Header */
+.cep-cal-days-header {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    background: #fcfcfc;
+    border-bottom: 1px solid var(--cal-border);
+}
+
+.cep-cal-days-header div {
+    padding: 15px 0;
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--cal-text-light);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* The Grid */
+.cep-cal-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    background: var(--cal-border); /* Grid gap color */
+    gap: 1px; /* Border thickness */
+}
+
+/* Day Cell */
+.cep-day {
+    background: #fff;
+    min-height: 140px; /* Slightly taller */
+    padding: 10px;
+    position: relative;
+    transition: background 0.2s;
+}
+
+.cep-day:hover {
+    background: #fafafa;
+}
+
+/* Empty days from previous/next months */
+.cep-day.empty {
+    background: #fdfdfd;
+}
+
+.cep-day.empty .cep-day-num { opacity: 0; } /* Hide number for empty days */
+
+/* Day Number */
+.cep-day-num {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--cal-text-light);
+    margin-bottom: 8px;
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    border-radius: 50%;
+}
+
+/* Today Highlight */
+.cep-day.today {
+    background: #fff;
+}
+
+.cep-day.today .cep-day-num {
+    background: var(--cep-accent);
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(59, 130, 246, 0.4);
+}
+
+/* The Event Card Link */
+.cep-event-link {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    /* border-left comes dynamically from JS based on custom color */
+    border-left-width: 4px !important; 
+    padding: 6px 10px;
+    margin-bottom: 5px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--cal-text);
+    text-decoration: none;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cep-event-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    border-color: #cbd5e1;
+    z-index: 10;
+    position: relative;
+}
+
+/* Responsive - Mobile */
+@media (max-width: 768px) {
+    .cep-cal-days-header div { font-size: 0.6rem; letter-spacing: 0; }
+    .cep-day { min-height: 80px; padding: 5px; }
+    .cep-event-link { font-size: 0.65rem; padding: 3px 5px; }
+    .cep-day-num { width: 20px; height: 20px; line-height: 20px; font-size: 0.75rem; }
+    .cep-cal-controls { padding: 15px; }
+    .cep-cal-controls h3 { font-size: 1.1rem; }
+}
+
+.cep-cal-header{
+    margin: 20px auto;
+    padding: 0 20px ;
+    display: flex;
+    justify-content: center;
+}
+
+.cep-cal-header button{
+    margin: 0 20px;
+}
+
+/* Overview Box Styling */
+.cep-overview-box {
+    background: #f8fafc;
+    border-left: 5px solid var(--cep-accent);
+    padding: 25px;
+    margin-bottom: 40px;
+    border-radius: 0 8px 8px 0;
+}
+
+.cep-lead-text {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #334155;
+    font-weight: 500;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .cep-lead-text { font-size: 1.05rem; }
+}
+
+/* ==========================================================================
+   10. Hero Section Improved
+   ========================================================================== */
+
+.cep-modern-hero {
+    position: relative;
+    width: 100%;
+    height: 450px; /* Increased height */
+    background: #1e1e24; /* Fallback color */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    margin-bottom: 50px;
+}
+
+.cep-hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* ✅ Improve image display */
+    background-size: cover; 
+    background-position: center center;
+    z-index: 1;
+}
+
+/* ✅ Semi-transparent black layer to ensure white text visibility */
+.cep-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* 60% dimming */
+    z-index: 2;
+}
+
+.cep-hero-container {
+    position: relative;
+    z-index: 5;
+    max-width: 900px;
+    padding: 20px;
+    /* ✅ Ensure text is white */
+    color: #ffffff !important;
+}
+
+.cep-hero-title {
+    font-size: 3.5rem;
+    margin: 15px 0;
+    font-weight: 800;
+    line-height: 1.2;
+    color: #ffffff !important;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.5); /* Text shadow */
+}
+
+.cep-hero-meta {
+    font-size: 1.3rem;
+    margin-top: 10px;
+    color: #f1f5f9 !important; /* Pure white */
+    font-weight: 500;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.cep-hero-loc {
+    margin-top: 15px;
+    font-size: 1.2rem;
+    color: #e2e8f0 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.cep-badge-lg {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.cep-badge-lg.upcoming { background: #f59e0b; color: #fff; }
+.cep-badge-lg.ongoing { background: #10b981; color: #fff; }
+.cep-badge-lg.finished { background: #64748b; color: #fff; }
+
+@media (max-width: 768px) {
+    .cep-modern-hero { height: 300px; }
+    .cep-hero-title { font-size: 2rem; }
+}
+
+/* Container inside the day cell */
+.cep-day-events {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    overflow-y: auto; /* Scroll if events overflow */
+    max-height: 90px;
+}
+
+/* ==========================================================================
+   11. Hero Section Fixes
+   ========================================================================== */
+
+.cep-modern-hero {
+    position: relative;
+    width: 100%;
+    min-height: 400px;
+    background: #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* Force white text */
+    color: #ffffff !important;
+}
+
+.cep-hero-bg {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background-size: cover; background-position: center; z-index: 0;
+}
+
+.cep-hero-overlay {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Background dimming */
+    z-index: 1;
+}
+
+.cep-hero-container {
+    position: relative; z-index: 2; padding: 20px; width: 100%; max-width: 900px;
+}
+
+/* Use !important to overcome theme styles */
+h1.cep-hero-title {
+    color: #ffffff !important;
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin: 10px 0;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5); /* Text shadow */
+}
+
+.cep-hero-meta, 
+.cep-hero-meta span {
+    color: #f1f5f9 !important; /* White */
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+.cep-events-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    margin-top: 5px;
+}
+
+/* ==========================================================================
+   12. Modal Styles
+   ========================================================================== */
+
+.cep-modal {
+    display: none; 
+    position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; 
+    background-color: rgba(0,0,0,0.5); /* Background overlay dimming */
+    align-items: center; justify-content: center;
+}
+
+.cep-modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; 
+    padding: 30px;
+    border: 1px solid #888;
+    width: 90%; max-width: 500px;
+    border-radius: 12px;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+#cep-close-modal {
+    color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer;
+    position: absolute; top: 10px; right: 20px;
+}
+
+#cep-close-modal:hover { color: #000; }
+
+#cep-modal-title { margin-top: 0; color: #333; }
+
+#cep-modal-link {
+    display: inline-block; margin-top: 15px; padding: 10px 25px;
+    background: #3b82f6; color: #fff; text-decoration: none; border-radius: 6px; font-weight: bold;
+}
+
+#cep-modal-link:hover { background: #2563eb; }
+
+/* ==========================================================================
+   13. 📅 Calendar Cell & Events Styling V3
+   ========================================================================== */
+
+/* Fix cell height to prevent table distortion */
+.cep-day {
+    background: #fff;
+    height: 140px; /* Fixed height */
+    max-height: 140px;
+    padding: 6px;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #f0f0f0;
+    border-bottom: 1px solid #f0f0f0;
+    overflow: hidden; /* Hide overflow */
+}
+
+/* Events container with smooth scrolling */
+.cep-events-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex-grow: 1;
+    overflow-y: auto; /* Allow scrolling inside a single day */
+    padding-right: 2px;
+}
+
+/* Customize scrollbar to be very thin and non-intrusive */
+.cep-events-container::-webkit-scrollbar { width: 3px; }
+.cep-events-container::-webkit-scrollbar-thumb { background: #ddd; border-radius: 4px; }
+
+/* 1. Main Event Design - Colored Bar */
+.cep-event-link.cep-is-main {
+    display: block;
+    background-color: #ebf5ff; /* Light background */
+    color: #1e3a8a;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 3px 6px;
+    border-radius: 4px;
+    border-left-width: 3px !important; /* Colored bar */
+    margin-bottom: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    text-decoration: none;
+    order: -1; /* Always appears on top (Fallback) */
+}
+
+/* 2. Sub Event Design - Simple Bullet Point */
+.cep-event-link.cep-is-sub {
+    display: flex;
+    align-items: center;
+    background: transparent; /* No background */
+    border: none !important; /* No borders */
+    padding: 1px 0 1px 4px;
+    margin: 0;
+    color: #64748b; /* Gray text */
+    font-size: 0.7rem; /* Smaller font */
+    text-decoration: none;
+    line-height: 1.2;
+}
+
+/* Add colored bullet point before sub event */
+.cep-event-link.cep-is-sub::before {
+    content: "•";
+    color: inherit; /* Inherits text color */
+    font-size: 1.2em;
+    margin-right: 4px;
+    line-height: 0;
+}
+
+/* Hover Effects */
+.cep-event-link.cep-is-main:hover { background-color: #dbeafe; transform: translateY(-1px); }
+.cep-event-link.cep-is-sub:hover { color: #000; text-decoration: underline; }

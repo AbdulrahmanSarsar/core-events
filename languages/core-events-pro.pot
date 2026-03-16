@@ -1,0 +1,1168 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Core Events Pro\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-02-22 11:51+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.8.1; wp-6.9; php-8.2.27\n"
+"X-Domain: core-events-pro"
+
+#: includes/Admin/Settings.php:205
+msgid "\"Back to\" Text"
+msgstr ""
+
+#: includes/Admin/Settings.php:209
+msgid "\"Ends\" Label"
+msgstr ""
+
+#: includes/Admin/Settings.php:197
+msgid "\"Past\" Title"
+msgstr ""
+
+#: includes/Admin/Settings.php:201
+msgid "\"Session\" Label"
+msgstr ""
+
+#: includes/Admin/Settings.php:193
+msgid "\"Upcoming\" Title"
+msgstr ""
+
+#: includes/Admin/Settings.php:213
+msgid "\"Waitlist\" Btn"
+msgstr ""
+
+#: templates/single-sub-event.php:46
+#, php-format
+msgid "%s Details"
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:130 includes/Admin/MetaBoxes.php:134
+msgid "& Time"
+msgstr ""
+
+#: includes/Admin/EventTools.php:104
+msgid "(Copy)"
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:314
+msgid "-- No Parent --"
+msgstr ""
+
+#: includes/Modules/Attendees.php:155
+msgid "--- YOUR TICKET ---"
+msgstr ""
+
+#: includes/Admin/Settings.php:147
+msgid "1. Registration Confirmation Email"
+msgstr ""
+
+#: includes/Admin/Settings.php:161
+msgid "2. Event Reminder (24h Before)"
+msgstr ""
+
+#. Author of the plugin
+msgid "Abdulrahman Sarsar"
+msgstr ""
+
+#: templates/single-sub-event.php:45
+#, php-format
+msgid "About this %s"
+msgstr ""
+
+#: includes/Admin/Dashboard.php:133
+msgid "Action"
+msgstr ""
+
+#: includes/PostTypes/MainEvent.php:52
+msgid "Add Event"
+msgstr ""
+
+#: includes/loader.php:51
+msgid "Add New Event"
+msgstr ""
+
+#: includes/PostTypes/MainEvent.php:53
+msgid "Add New Main Event"
+msgstr ""
+
+#: templates/single-event.php:120 includes/Admin/Settings.php:130
+msgid "Add to Calendar"
+msgstr ""
+
+#: includes/Modules/Attendees.php:119
+msgid "Added to Waitlist! You will be notified if a seat opens up."
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:297
+msgid "Address..."
+msgstr ""
+
+#: includes/Admin/Settings.php:349
+msgid "AJAX search & filter form."
+msgstr ""
+
+#: includes/Admin/AttendeesPage.php:48
+msgid "All Attendees"
+msgstr ""
+
+#: includes/Shortcodes/EventViews.php:73
+msgid "All Categories"
+msgstr ""
+
+#: includes/Admin/AttendeesPage.php:101
+msgid "All Events & Sessions"
+msgstr ""
+
+#: includes/PostTypes/MainEvent.php:55
+msgid "All Main Events"
+msgstr ""
+
+#: includes/Shortcodes/EventViews.php:84
+msgid "All Statuses"
+msgstr ""
+
+#: includes/PostTypes/SubEvent.php:53
+msgid "All Sub Events"
+msgstr ""
+
+#: includes/Modules/Attendees.php:239
+msgid "ALREADY CHECKED IN"
+msgstr ""
+
+#: includes/Admin/AttendeesPage.php:118
+msgid "Apply Filter"
+msgstr ""
+
+#: includes/Admin/AttendeesTable.php:102
+msgid "Are you sure you want to delete this attendee?"
+msgstr ""
+
+#: includes/Modules/Attendees.php:311
+msgid "Attended"
+msgstr ""
+
+#: includes/Admin/AttendeesTable.php:60
+msgid "Attended?"
+msgstr ""
+
+#. i18n: Page title.
+#: includes/Admin/AttendeesPage.php:49
+msgid "Attendees 👥"
+msgstr ""
+
+#: includes/Admin/Settings.php:135
+msgid "Auto-hide finished events"
+msgstr ""
+
+#: templates/single-event.php:219
+#, php-format
+msgid "Available Seats: %1$d / %2$d"
+msgstr ""
+
+#: includes/Admin/Settings.php:144
+msgid ""
+"Available tags: <code>{name}</code>, <code>{event_name}</code>, <code>"
+"{status}</code> (confirmed/waitlist), <code>{event_date}</code>."
+msgstr ""
+
+#: templates/single-sub-event.php:41 includes/Admin/Settings.php:206
+msgid "Back to Event"
+msgstr ""
+
+#: includes/Admin/Settings.php:154 includes/Admin/Settings.php:168
+msgid "Body"
+msgstr ""
+
+#: templates/single-event.php:136
+msgid "Calculating..."
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:159
+msgid "Calendar Color:"
+msgstr ""
+
+#: templates/single-event.php:78
+msgid "Cancelled"
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:148
+msgid "Cancelled ❌"
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:152
+msgid "Capacity (Seats):"
+msgstr ""
+
+#: includes/loader.php:68
+msgid "Categories"
+msgstr ""
+
+#: includes/PostTypes/Taxonomies.php:51
+msgid "Category"
+msgstr ""
+
+#: includes/Modules/Attendees.php:255
+msgid "Check-in confirmed!"
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:267
+msgid "Checked-in:"
+msgstr ""
+
+#: includes/Admin/Settings.php:271
+msgid "Click to copy"
+msgstr ""
+
+#: includes/Admin/Settings.php:227
+msgid "Click to copy shortcodes."
+msgstr ""
+
+#: includes/Admin/Settings.php:123
+msgid "Clickable Maps"
+msgstr ""
+
+#: includes/Admin/EventTools.php:65
+msgid "Clone Event"
+msgstr ""
+
+#: templates/single-event.php:201
+msgid "Confirm Registration"
+msgstr ""
+
+#: includes/Helpers/Cron.php:149 includes/Modules/Attendees.php:162
+msgid "CONFIRMED"
+msgstr ""
+
+#. Name of the plugin
+msgid "Core Events Pro"
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:182
+msgid "Daily"
+msgstr ""
+
+#. i18n: Page title.
+#: includes/Admin/Dashboard.php:48
+msgid "Dashboard 📊"
+msgstr ""
+
+#: includes/Modules/Attendees.php:125
+msgid "Database error."
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:258
+msgid "Database table not found. Please reactivate the plugin."
+msgstr ""
+
+#: templates/loop-event.php:58 templates/single-sub-event.php:73
+msgctxt "Date separator"
+msgid " - "
+msgstr ""
+
+#: templates/single-sub-event.php:163
+msgid "Date:"
+msgstr ""
+
+#: templates/single-event.php:105
+msgid "Date: TBA"
+msgstr ""
+
+#: templates/single-event.php:149
+msgctxt "days in countdown"
+msgid "d "
+msgstr ""
+
+#: includes/Admin/AttendeesTable.php:103 includes/Admin/AttendeesTable.php:181
+msgid "Delete"
+msgstr ""
+
+#: includes/Admin/Settings.php:343
+msgid "Description"
+msgstr ""
+
+#: includes/Admin/EventTools.php:66
+msgid "Duplicate this event"
+msgstr ""
+
+#: includes/PostTypes/MainEvent.php:54
+msgid "Edit Main Event"
+msgstr ""
+
+#: templates/single-sub-event.php:208 includes/Admin/AttendeesTable.php:56
+#: includes/Modules/Attendees.php:308
+msgid "Email"
+msgstr ""
+
+#: templates/single-event.php:248
+msgid "Email Address"
+msgstr ""
+
+#: includes/Admin/Settings.php:122
+msgid "Enable Location"
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:177
+msgid "Enable Recurring Event"
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:170
+msgid "Enable Registration (RSVP) for this event"
+msgstr ""
+
+#: includes/Admin/Settings.php:118
+msgid "Enable Time"
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:134
+msgid "End Date"
+msgstr ""
+
+#: includes/Helpers/Utils.php:56
+msgid "Ended"
+msgstr ""
+
+#: includes/Admin/Settings.php:210
+msgid "Ends:"
+msgstr ""
+
+#: templates/single-event.php:320
+#, php-format
+msgid "Ends: %s"
+msgstr ""
+
+#: includes/Modules/Attendees.php:205
+msgid "Error updating status"
+msgstr ""
+
+#: includes/Admin/AttendeesPage.php:151
+msgid "Error updating status."
+msgstr ""
+
+#: includes/loader.php:49 includes/Admin/AttendeesTable.php:58
+msgid "Event"
+msgstr ""
+
+#: includes/PostTypes/Taxonomies.php:50
+msgid "Event Categories"
+msgstr ""
+
+#: includes/Admin/Settings.php:126
+msgid "Event Countdown"
+msgstr ""
+
+#: includes/PostTypes/MainEvent.php:85
+msgid "Event Dates"
+msgstr ""
+
+#: templates/single-event.php:42 templates/single-sub-event.php:42
+#: includes/Admin/Settings.php:186
+msgid "Event Gallery"
+msgstr ""
+
+#: templates/single-event.php:367
+msgid "Event Gallery Image"
+msgstr ""
+
+#: includes/Shortcodes/EventViews.php:449
+#: includes/Shortcodes/EventViews.php:473
+msgctxt "Event grouped list date format"
+msgid "M d"
+msgstr ""
+
+#: templates/single-event.php:215
+msgid "Event is Fully Booked! You can still join the Waitlist."
+msgstr ""
+
+#: includes/Admin/EventTools.php:98 includes/Api/EventController.php:271
+#: includes/Shortcodes/EventViews.php:226
+msgid "Event not found."
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:190
+msgid "Event Overview (Short Summary):"
+msgstr ""
+
+#: templates/single-event.php:205
+msgid "Event Registration"
+msgstr ""
+
+#: templates/single-event.php:43 includes/Admin/Settings.php:182
+msgid "Event Schedule"
+msgstr ""
+
+#: templates/single-event.php:148
+msgid "EVENT STARTED!"
+msgstr ""
+
+#: templates/single-event.php:133
+msgid "Event Starts In"
+msgstr ""
+
+#: includes/PostTypes/Taxonomies.php:75
+msgid "Event Tags"
+msgstr ""
+
+#: includes/Admin/Dashboard.php:131
+msgid "Event Title"
+msgstr ""
+
+#: includes/PostTypes/Taxonomies.php:63
+msgid "Event Types"
+msgstr ""
+
+#: templates/single-event.php:41 includes/Admin/Settings.php:190
+msgid "Event Video"
+msgstr ""
+
+#: includes/loader.php:48
+msgid "Events"
+msgstr ""
+
+#: includes/Admin/Dashboard.php:47
+msgid "Events Dashboard"
+msgstr ""
+
+#: includes/loader.php:50
+msgid "Events Manager"
+msgstr ""
+
+#: includes/PostTypes/MainEvent.php:51
+msgid "Events Pro"
+msgstr ""
+
+#: includes/Admin/Settings.php:47
+msgid "Events Settings"
+msgstr ""
+
+#: includes/Admin/EventTools.php:140
+msgid "Failed to clone event."
+msgstr ""
+
+#: includes/Admin/EventTools.php:295
+msgid "Failed to open the CSV file."
+msgstr ""
+
+#: includes/Shortcodes/EventViews.php:91
+msgid "Filter"
+msgstr ""
+
+#: includes/Admin/AttendeesPage.php:99
+msgid "Filter by Event:"
+msgstr ""
+
+#: templates/single-event.php:77 includes/Admin/MetaBoxes.php:147
+#: includes/PostTypes/MainEvent.php:131 includes/Shortcodes/EventViews.php:87
+msgid "Finished"
+msgstr ""
+
+#: includes/Admin/Dashboard.php:161
+msgid "Format:"
+msgstr ""
+
+#: includes/Shortcodes/Calendar.php:79
+msgid "Fri"
+msgstr ""
+
+#: templates/single-event.php:247
+msgid "Full Name"
+msgstr ""
+
+#: templates/single-sub-event.php:196
+msgid "Fully Booked"
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:223
+msgid "Gallery Images:"
+msgstr ""
+
+#: includes/Admin/Settings.php:185
+msgid "Gallery Title"
+msgstr ""
+
+#: includes/Helpers/Utils.php:55
+msgid "Happening Now"
+msgstr ""
+
+#: includes/Helpers/Cron.php:143
+msgid ""
+"Hello {name},\n"
+"\n"
+"Friendly reminder that {event_name} starts on {event_date}.\n"
+"See you there!"
+msgstr ""
+
+#: includes/Admin/Settings.php:170
+msgid ""
+"Hello {name},\n"
+"\n"
+"This is a friendly reminder that {event_name} will start on {event_date}.\n"
+"See you there!"
+msgstr ""
+
+#: includes/Modules/Attendees.php:146
+msgid ""
+"Hello {name},\n"
+"\n"
+"Your registration for {event_name} is {status}.\n"
+"Date: {event_date}\n"
+"\n"
+"Best Regards,"
+msgstr ""
+
+#: includes/Admin/Settings.php:156
+msgid ""
+"Hello {name},\n"
+"\n"
+"Your registration for {event_name} is {status}.\n"
+"We look forward to seeing you!\n"
+"\n"
+"Best Regards,"
+msgstr ""
+
+#: includes/Admin/Settings.php:134
+msgid "Hide Past Events"
+msgstr ""
+
+#: templates/single-event.php:150
+msgctxt "hours in countdown"
+msgid "h "
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:210
+msgid "Image URL (Leave empty to use Featured Image)"
+msgstr ""
+
+#: includes/Admin/Settings.php:353
+msgid "Interactive monthly calendar."
+msgstr ""
+
+#: includes/Modules/Attendees.php:264
+msgid "INVALID TICKET"
+msgstr ""
+
+#: includes/Shortcodes/EventViews.php:395
+msgid "Join Now"
+msgstr ""
+
+#: templates/single-event.php:44 includes/Admin/Settings.php:214
+msgid "Join Waitlist"
+msgstr ""
+
+#: includes/Shortcodes/Calendar.php:64
+msgid "Loading..."
+msgstr ""
+
+#: includes/PostTypes/MainEvent.php:50
+msgid "Main Event"
+msgstr ""
+
+#: includes/PostTypes/MainEvent.php:49
+msgid "Main Events"
+msgstr ""
+
+#: includes/Admin/Dashboard.php:143
+msgid "Manage"
+msgstr ""
+
+#: includes/Admin/AttendeesPage.php:90
+msgid ""
+"Manage all registrations across your events. Use the filter below to view "
+"attendees for a specific event or session."
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:240
+msgid "Manage Images"
+msgstr ""
+
+#: includes/Admin/AttendeesTable.php:179
+msgid "Mark as Attended"
+msgstr ""
+
+#: includes/Admin/EventTools.php:156
+msgid "Mark as Cancelled"
+msgstr ""
+
+#: includes/Admin/EventTools.php:155
+msgid "Mark as Finished"
+msgstr ""
+
+#: includes/Admin/AttendeesTable.php:180
+msgid "Mark as Unattended"
+msgstr ""
+
+#: includes/Admin/AttendeesTable.php:139
+msgid "Mark Attended"
+msgstr ""
+
+#: templates/single-event.php:151
+msgctxt "minutes in countdown"
+msgid "m "
+msgstr ""
+
+#: includes/Shortcodes/Calendar.php:75
+msgid "Mon"
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:184
+msgid "Monthly"
+msgstr ""
+
+#: templates/single-sub-event.php:207 includes/Admin/AttendeesTable.php:55
+#: includes/Modules/Attendees.php:240 includes/Modules/Attendees.php:253
+#: includes/Modules/Attendees.php:307
+msgid "Name"
+msgstr ""
+
+#: includes/Modules/Attendees.php:317
+msgid "No"
+msgstr ""
+
+#: includes/loader.php:52
+msgid "No events found"
+msgstr ""
+
+#: includes/Shortcodes/EventViews.php:202
+msgid "No events found matching your criteria."
+msgstr ""
+
+#: includes/Shortcodes/EventViews.php:326
+msgid "No events found."
+msgstr ""
+
+#: includes/Shortcodes/EventViews.php:482
+msgid "No past events found."
+msgstr ""
+
+#: includes/Shortcodes/EventViews.php:268
+msgid "No sub-events found."
+msgstr ""
+
+#: includes/Admin/Dashboard.php:151
+msgid "No upcoming events found. Time to create one!"
+msgstr ""
+
+#: includes/Shortcodes/EventViews.php:458
+msgid "No upcoming events."
+msgstr ""
+
+#: templates/single-event.php:76 includes/Admin/MetaBoxes.php:146
+#: includes/PostTypes/MainEvent.php:130 includes/Shortcodes/EventViews.php:86
+msgid "Ongoing"
+msgstr ""
+
+#: includes/Modules/Attendees.php:158
+#, php-format
+msgid "Or keep this link: %s"
+msgstr ""
+
+#: includes/PostTypes/SubEvent.php:86
+msgid "Parent Event"
+msgstr ""
+
+#: templates/single-sub-event.php:173
+msgid "Parent Event:"
+msgstr ""
+
+#: includes/Admin/Settings.php:198 includes/Shortcodes/EventViews.php:416
+msgid "Past Events"
+msgstr ""
+
+#: includes/Admin/AttendeesTable.php:57 includes/Modules/Attendees.php:309
+msgid "Phone"
+msgstr ""
+
+#: templates/single-event.php:251
+msgid "Phone Number (Optional)"
+msgstr ""
+
+#: includes/Modules/Attendees.php:156
+msgid "Please present this QR code at the entrance:"
+msgstr ""
+
+#: includes/Admin/EventTools.php:248
+msgid "Please upload a valid CSV file."
+msgstr ""
+
+#: templates/single-event.php:268
+msgid "Processing..."
+msgstr ""
+
+#: includes/Modules/Attendees.php:157
+msgid "QR Ticket"
+msgstr ""
+
+#: templates/single-sub-event.php:211 templates/single-sub-event.php:226
+msgid "Register"
+msgstr ""
+
+#: templates/single-event.php:234
+msgid "Register for the Main Event"
+msgstr ""
+
+#: templates/single-sub-event.php:200
+msgid "Register for this Session"
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:155
+msgid "Registered:"
+msgstr ""
+
+#: templates/single-event.php:209
+#, php-format
+msgid "Registration closed (Event is %s)."
+msgstr ""
+
+#: includes/Admin/Settings.php:151 includes/Modules/Attendees.php:145
+msgid "Registration Confirmed: {event_name}"
+msgstr ""
+
+#: includes/Admin/AttendeesTable.php:61 includes/Modules/Attendees.php:312
+msgid "Registration Date"
+msgstr ""
+
+#: includes/Modules/Attendees.php:120
+msgid "Registration successful! Check your email for your ticket."
+msgstr ""
+
+#: includes/Admin/Settings.php:165
+msgid "Reminder: {event_name} is starting soon!"
+msgstr ""
+
+#: includes/Helpers/Cron.php:142
+msgid "Reminder: {event_name} starts tomorrow!"
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:180
+msgid "Repeat:"
+msgstr ""
+
+#: includes/Modules/Attendees.php:70
+msgid "Required fields are missing."
+msgstr ""
+
+#: includes/Shortcodes/Calendar.php:80
+msgid "Sat"
+msgstr ""
+
+#: includes/Admin/Settings.php:218
+msgid "Save Settings"
+msgstr ""
+
+#: includes/Admin/Settings.php:181
+msgid "Schedule Title"
+msgstr ""
+
+#: includes/Shortcodes/EventViews.php:102
+msgid "Searching..."
+msgstr ""
+
+#: templates/single-event.php:152
+msgctxt "seconds in countdown"
+msgid "s "
+msgstr ""
+
+#: includes/Admin/AttendeesTable.php:202 includes/Admin/AttendeesTable.php:215
+msgid "Security Check Failed"
+msgstr ""
+
+#: includes/Admin/EventTools.php:90 includes/Admin/EventTools.php:238
+msgid "Security check failed."
+msgstr ""
+
+#: includes/Modules/Attendees.php:286
+msgid "Security check failed. Link may have expired."
+msgstr ""
+
+#: templates/single-event.php:231
+msgid "Select Session (Optional):"
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:312
+msgid "Select the Main Event this session belongs to:"
+msgstr ""
+
+#: includes/loader.php:109 templates/single-sub-event.php:40
+#: includes/Admin/Settings.php:202
+msgid "Session"
+msgstr ""
+
+#: includes/loader.php:108
+msgid "Sessions / Sub-Events"
+msgstr ""
+
+#: core-events-pro.php:227
+msgid "Settings"
+msgstr ""
+
+#. i18n: Page title.
+#: includes/Admin/Settings.php:48
+msgid "Settings & Help"
+msgstr ""
+
+#: includes/Admin/Settings.php:342
+msgid "Shortcode"
+msgstr ""
+
+#: includes/Admin/Settings.php:119
+msgid "Show Hours & Minutes"
+msgstr ""
+
+#: includes/Admin/Settings.php:131
+msgid "Show ICS button 📅"
+msgstr ""
+
+#: includes/Admin/Settings.php:127
+msgid "Show Live Countdown ⏳"
+msgstr ""
+
+#: includes/Admin/Settings.php:365
+msgid "Simple grid of events."
+msgstr ""
+
+#: includes/Admin/Settings.php:357
+msgid "Single next upcoming event card."
+msgstr ""
+
+#: includes/Admin/Dashboard.php:132 includes/Admin/MetaBoxes.php:130
+msgid "Start Date"
+msgstr ""
+
+#: includes/Shortcodes/EventViews.php:233
+msgid "Starts:"
+msgstr ""
+
+#: includes/Admin/AttendeesTable.php:59 includes/Modules/Attendees.php:310
+#: includes/PostTypes/MainEvent.php:86
+msgid "Status"
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:143
+msgid "Status:"
+msgstr ""
+
+#: includes/PostTypes/SubEvent.php:51
+msgid "Sub Event"
+msgstr ""
+
+#: templates/single-sub-event.php:169
+msgctxt "Sub event am/pm time format"
+msgid "g:i A"
+msgstr ""
+
+#: templates/single-sub-event.php:70 templates/single-sub-event.php:73
+msgctxt "Sub event date format"
+msgid "M d"
+msgstr ""
+
+#: templates/single-sub-event.php:164
+msgctxt "Sub event full date format"
+msgid "F j, Y"
+msgstr ""
+
+#: templates/single-sub-event.php:81 templates/single-sub-event.php:84
+msgctxt "Sub event time format"
+msgid "H:i"
+msgstr ""
+
+#: includes/PostTypes/SubEvent.php:50 includes/PostTypes/SubEvent.php:52
+msgid "Sub Events"
+msgstr ""
+
+#: includes/Admin/Settings.php:150 includes/Admin/Settings.php:164
+msgid "Subject"
+msgstr ""
+
+#: includes/Modules/Attendees.php:252
+msgid "SUCCESS"
+msgstr ""
+
+#. 1: Number of events, 2: Event status
+#: includes/Admin/EventTools.php:204
+#, php-format
+msgid "Successfully marked %1$d events as <strong>%2$s</strong>."
+msgstr ""
+
+#: includes/Shortcodes/Calendar.php:74
+msgid "Sun"
+msgstr ""
+
+#: includes/PostTypes/Taxonomies.php:76
+msgid "Tag"
+msgstr ""
+
+#: templates/single-event.php:305 templates/single-sub-event.php:164
+#: templates/single-sub-event.php:169
+msgid "TBA"
+msgstr ""
+
+#. Description of the plugin
+msgid ""
+"The ultimate event management system with Calendar, Sub-events, and REST API."
+msgstr ""
+
+#: includes/Modules/Attendees.php:265
+msgid "This QR code is not recognized."
+msgstr ""
+
+#: includes/Modules/Attendees.php:242
+msgid "This ticket was already used."
+msgstr ""
+
+#: includes/Shortcodes/Calendar.php:78
+msgid "Thu"
+msgstr ""
+
+#: templates/single-event.php:314 templates/single-sub-event.php:84
+msgctxt "Time separator"
+msgid " - "
+msgstr ""
+
+#: templates/single-sub-event.php:168
+msgid "Time:"
+msgstr ""
+
+#: includes/Admin/Dashboard.php:162
+msgid ""
+"Title, Content, Start Date (YYYY-MM-DDTHH:MM), End Date, Capacity, Location."
+msgstr ""
+
+#: includes/PostTypes/MainEvent.php:113
+msgid "to"
+msgstr ""
+
+#: includes/Shortcodes/Calendar.php:67
+msgid "Today"
+msgstr ""
+
+#: includes/Admin/Dashboard.php:115
+msgid "Total Checked-in"
+msgstr ""
+
+#: includes/Admin/Dashboard.php:103
+msgid "Total Published Events"
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:266
+msgid "Total Registered:"
+msgstr ""
+
+#: includes/Admin/Dashboard.php:109
+msgid "Total Registrations"
+msgstr ""
+
+#: includes/Shortcodes/Calendar.php:76
+msgid "Tue"
+msgstr ""
+
+#: includes/PostTypes/Taxonomies.php:64
+msgid "Type"
+msgstr ""
+
+#: includes/Admin/AttendeesPage.php:67 includes/Admin/EventTools.php:243
+#: includes/Modules/Attendees.php:190 includes/Modules/Attendees.php:281
+msgid "Unauthorized"
+msgstr ""
+
+#: includes/Admin/Dashboard.php:66 includes/Admin/Settings.php:98
+msgid "Unauthorized access."
+msgstr ""
+
+#: includes/Modules/Attendees.php:222
+msgid "Unauthorized: You must be logged in as an admin/editor to scan tickets."
+msgstr ""
+
+#: includes/Helpers/Utils.php:63
+msgid "Unknown"
+msgstr ""
+
+#: includes/Admin/AttendeesTable.php:129
+msgid "Unknown Event"
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:153 includes/Api/EventController.php:134
+msgid "Unlimited"
+msgstr ""
+
+#: includes/PostTypes/SubEvent.php:116
+msgid "Unlinked"
+msgstr ""
+
+#: includes/Admin/EventTools.php:262
+msgid "Untitled Event"
+msgstr ""
+
+#: templates/single-event.php:75 includes/Admin/MetaBoxes.php:145
+#: includes/Helpers/Utils.php:54 includes/PostTypes/MainEvent.php:129
+#: includes/Shortcodes/EventViews.php:85
+msgid "Upcoming"
+msgstr ""
+
+#: includes/Admin/Settings.php:194 includes/Shortcodes/EventViews.php:415
+msgid "Upcoming Events"
+msgstr ""
+
+#: includes/Admin/Settings.php:361
+msgid "Upcoming vs Past events."
+msgstr ""
+
+#: includes/Modules/Attendees.php:203
+msgid "Updated"
+msgstr ""
+
+#: includes/Admin/AttendeesPage.php:150
+msgid "Updating..."
+msgstr ""
+
+#: includes/Admin/Dashboard.php:169
+msgid "Upload & Import"
+msgstr ""
+
+#: includes/Admin/Dashboard.php:158
+msgid "Upload a CSV file to bulk create main events."
+msgstr ""
+
+#: includes/Admin/Settings.php:189
+msgid "Video Title"
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:216
+msgid "Video URL:"
+msgstr ""
+
+#: templates/loop-event.php:80 includes/Shortcodes/EventViews.php:272
+msgid "View Details"
+msgstr ""
+
+#: includes/Shortcodes/Calendar.php:94
+msgid "View Full Event"
+msgstr ""
+
+#: templates/single-sub-event.php:225
+msgid "Wait..."
+msgstr ""
+
+#: includes/Modules/Attendees.php:162
+msgid "WAITLIST"
+msgstr ""
+
+#: includes/Shortcodes/Calendar.php:77
+msgid "Wed"
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:183
+msgid "Weekly"
+msgstr ""
+
+#: includes/Modules/Attendees.php:317
+msgid "Yes"
+msgstr ""
+
+#: includes/Modules/Attendees.php:80
+msgid "You are already registered."
+msgstr ""
+
+#: includes/Admin/AttendeesPage.php:108
+msgid "— Session: "
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:50
+msgid "⚙️ Event Configuration & Details"
+msgstr ""
+
+#: includes/Admin/Settings.php:102
+msgid "⚙️ Events Pro Configuration"
+msgstr ""
+
+#: includes/Admin/Settings.php:370
+msgid "✅ Shortcode copied to clipboard!"
+msgstr ""
+
+#. %d: Number of imported events
+#: includes/Admin/EventTools.php:219
+msgid "✅ Successfully imported <strong>%d</strong> events from CSV."
+msgstr ""
+
+#: includes/Admin/AttendeesTable.php:139
+msgid "✅ Yes"
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:59
+msgid "🎬 Media (Banner, Gallery & Video)"
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:68
+msgid "👥 Attendees List"
+msgstr ""
+
+#: includes/Admin/AttendeesPage.php:89
+msgid "👥 Event Attendees"
+msgstr ""
+
+#: includes/Admin/Dashboard.php:96
+msgid "📊 Events Pro Overview"
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:78
+msgid "📍 Location"
+msgstr ""
+
+#: includes/Admin/Settings.php:178
+msgid "📝 Text & Translation"
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:269
+msgid "📥 Export CSV"
+msgstr ""
+
+#: includes/Admin/AttendeesPage.php:126
+msgid "📥 Export This List (CSV)"
+msgstr ""
+
+#: includes/Admin/Dashboard.php:157
+msgid "📥 Import Events (CSV)"
+msgstr ""
+
+#: includes/Admin/Settings.php:142
+msgid "📧 Automated Emails"
+msgstr ""
+
+#: includes/Shortcodes/EventViews.php:70
+msgid "🔍 Search events..."
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:268
+msgid "🔍 View & Manage Attendees"
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:89
+msgid "🔗 Parent Event Connection"
+msgstr ""
+
+#: includes/Admin/Settings.php:115
+msgid "🔧 Features Control"
+msgstr ""
+
+#: includes/Admin/MetaBoxes.php:209
+msgid "🖼️ Custom Banner URL (Optional):"
+msgstr ""
+
+#: includes/Shortcodes/EventViews.php:384
+msgid "🚀 Next Upcoming Event"
+msgstr ""
+
+#: includes/Admin/Dashboard.php:125
+msgid "🚀 Next Upcoming Events"
+msgstr ""
+
+#: includes/Admin/Settings.php:226
+msgid "🧩 Shortcodes Cheatsheet"
+msgstr ""

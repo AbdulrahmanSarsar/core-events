@@ -3,7 +3,7 @@ Contributors: abdulrahmansarsar
 Tags: events, calendar, rsvp, event management, qr code tickets, booking
 Requires at least: 5.8
 Tested up to: 6.4
-Stable tag: 4.0.0
+Stable tag: 1.0.0
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -54,7 +54,7 @@ Absolutely. The plugin's frontend and backend are carefully coded to support Rig
 
 == Changelog ==
 
-= 4.0.0 =
+= 1.0.0 =
 * Major Release: Rebuilt from the ground up for maximum performance and security.
 * Added: Waitlist system for fully booked events.
 * Added: QR Code ticket generation and scanning system.

@@ -3,7 +3,7 @@
 /**
  * Plugin Name: Core Events Pro
  * Description: The ultimate event management system with Calendar, Sub-events, and REST API.
- * Version: 4.0.0
+ * Version: 1.0.0
  * Author: Abdulrahman Sarsar
  * Text Domain: core-events
  * Domain Path: /languages
@@ -23,7 +23,7 @@ if (! defined('ABSPATH')) {
  * 
  * @var string
  */
-define('CEP_VERSION', '4.0.0');
+define('CEP_VERSION', '1.0.0');
 
 /**
  * Plugin absolute directory path.
@@ -119,6 +119,7 @@ final class Plugin
         // Modules
         require_once CEP_PATH . 'includes/Modules/Attendees.php';
         require_once CEP_PATH . 'includes/Modules/WooCommerce.php';
+        require_once CEP_PATH . 'includes/Modules/Licensing/Licensing.php';
     }
 
     /**
@@ -148,6 +149,7 @@ final class Plugin
         new Helpers\Cron();
         new Modules\Attendees();
         new Modules\WooCommerce();
+        new Modules\Licensing();
         new Admin\SetupWizard(); // Initialize Wizard
 
     }

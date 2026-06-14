@@ -272,6 +272,9 @@ class Attendees
      */
     public function manual_checkin()
     {
+        // Security Check: Verify the AJAX nonce to prevent CSRF.
+        check_ajax_referer('cep_checkin_nonce', 'security');
+
         // Security Check: Capabilities
         if (! current_user_can('edit_posts')) {
             wp_send_json_error(__('Unauthorized', 'core-events-pro'));

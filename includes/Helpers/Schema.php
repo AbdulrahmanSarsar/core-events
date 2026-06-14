@@ -76,7 +76,7 @@ class Schema
 
         // The <script> tag itself is plain HTML; the dynamic part is the
         // already-encoded JSON, so no further escaping is needed.
-        echo "\n<!-- Core Events Pro: Event Schema -->\n";
+        echo "\n<!-- EventCore: Event Schema -->\n";
         echo '<script type="application/ld+json">' . $json . '</script>' . "\n";
     }
 

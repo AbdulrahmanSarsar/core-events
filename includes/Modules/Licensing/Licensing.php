@@ -145,7 +145,7 @@ class Licensing
 
         ?>
         <div class="wrap">
-            <h1><?php esc_html_e('Core Events Pro License', 'core-events-pro'); ?></h1>
+            <h1><?php esc_html_e('EventCore License', 'core-events-pro'); ?></h1>
             <p><?php esc_html_e('Activate your CodeCanyon purchase code to unlock premium features.', 'core-events-pro'); ?></p>
 
             <table class="form-table" role="presentation">
@@ -574,7 +574,7 @@ class Licensing
                 'timeout' => 15,
                 'headers' => [
                     'Authorization' => 'Bearer ' . $token,
-                    'User-Agent'    => 'Core Events Pro license check',
+                    'User-Agent'    => 'EventCore license check',
                 ],
             ]
         );
@@ -672,7 +672,7 @@ class Licensing
                 wp_kses_post(
                     sprintf(
                         /* translators: %s: license page URL. */
-                        __('Core Events Pro is running in limited mode. Activate your license to unlock automatic updates, premium templates, and advanced modules. <a href="%s">Activate now</a>.', 'core-events-pro'),
+                        __('EventCore is running in limited mode. Activate your license to unlock automatic updates, premium templates, and advanced modules. <a href="%s">Activate now</a>.', 'core-events-pro'),
                         esc_url($license_url)
                     )
                 )

@@ -1,7 +1,7 @@
 # CLAUDE.md — Core Events Pro
 
 > **ملف السياق الرئيسي للمشروع.** Claude Code بيقراه تلقائياً ببداية كل جلسة.
-> آخر تحديث: 27 أبريل 2026
+> آخر تحديث: 14 يونيو 2026
 
 ---
 
@@ -23,11 +23,15 @@
 
 ## 🎯 نظرة عامة على المشروع
 
-**Core Events Pro** — إضافة WordPress احترافية لإدارة الأحداث، مستهدفة سوق CodeCanyon.
+**EventCore – Advanced Events & Booking Manager** — إضافة WordPress احترافية لإدارة الأحداث، مستهدفة سوق CodeCanyon.
+
+> **مهم — الاسم vs الـ slug الداخلي:**
+> - **الاسم التجاري المعروض للمشترين:** `EventCore – Advanced Events & Booking Manager` (في الترويسة + readme + النصوص المرئية).
+> - **الـ slug / text-domain / namespace الداخلي:** يبقى `core-events-pro` / `CoreEventsPro` / prefix `cep_` بدون تغيير (لأن كل الكود وملف `.pot` مبنيّان عليه، و CodeCanyon لا يشترط التطابق). **لا تعيد تسمية الـ slug الداخلي.**
 
 ### Stack & Compatibility
 - **PHP:** 7.4+
-- **WordPress:** 5.8+
+- **WordPress:** 5.8+ (Tested up to 6.8)
 - **WooCommerce:** اختياري (للتذاكر المدفوعة)
 - **License:** GPLv2+
 
@@ -337,15 +341,27 @@ python build_user_guide.py
 
 ---
 
-## 📞 Migration State (27 April 2026)
+## 📞 Migration State (14 June 2026)
 
-**الحالة الحالية:** خلصنا كل القضايا الحرجة الـ 4 اللي بتطير Envato review:
-1. ~~QuickChart dependency~~ ✅ (Phase 1.1)
-2. ~~License flow غلط~~ ✅ (Phase 1.2)
-3. ~~لا anti-spam على RSVP~~ ✅ (Phase 1.3)
-4. ~~Synchronous emails~~ ✅ (Phase 1.4)
+**الحالة الحالية:** الإضافة **جاهزة للتسليم على CodeCanyon (Release 1.0.0)**.
 
-**أول مهمة قادمة:** Phase 1.6 — PDF Ticket Attachment
+تم دمج شغل Phase 1 المتقدّم (كان uncommitted في worktree) داخل `main` (commit `57682eb`)، ثم في نفس الجلسة:
+1. ~~Text Domain غلط في الترويسة (`core-events` → `core-events-pro`)~~ ✅ (كان بيكسر الترجمة)
+2. ~~ضبط الاسم التجاري "EventCore" + ترويسات احترافية (URI/Requires/License)~~ ✅
+3. ~~ثغرة CSRF في `manual_checkin` (أضفنا nonce)~~ ✅
+4. ~~ملف ميت `includes/loader.php`~~ ✅ (انحذف)
+5. ~~تقوية استيراد CSV (`is_uploaded_file` + filetype check)~~ ✅
+6. ~~توحيد النصوص المرئية على "EventCore"~~ ✅
+7. ~~`readme.txt` (وصف + إفصاح طرف ثالث + changelog)~~ ✅
+8. ~~إعادة توليد `.pot` (384 نص، يشمل كل الوحدات الجديدة)~~ ✅
+9. ~~lint لكل ملفات PHP (PHP 8.2، صفر أخطاء)~~ ✅
+10. ~~حزمة Envato كاملة (plugin zip + documentation/ + licensing/)~~ ✅
+
+**الحزمة:** `dist/eventcore-1.0.0.zip` (الإضافة القابلة للتثبيت) + `dist/eventcore-codecanyon-1.0.0.zip` (حزمة الرفع الكاملة).
+
+**متبقّي على عبدالرحمن قبل الرفع (مو كود):** Screenshots للـ item، تأكيد `Tested up to` لإصدار WP المُختبَر فعلياً، ووصف المنتج على Envato.
+
+**أول مهمة feature قادمة (اختيارية، Phase 1.6+):** PDF Ticket Attachment ثم Custom Registration Fields / Coupons.
 
 ---
 

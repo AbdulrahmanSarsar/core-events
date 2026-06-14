@@ -154,6 +154,7 @@ class AttendeesPage
 
                     $.post(ajaxurl, {
                         action: 'cep_manual_checkin', // Function located in Attendees.php
+                        security: '<?php echo esc_js(wp_create_nonce('cep_checkin_nonce')); ?>',
                         attendee_id: btn.data('id'),
                         status: btn.data('val')
                     }, function(res) {

@@ -226,7 +226,7 @@ class SetupWizard
 
         <div class="cep-wizard-wrapper">
             <div class="cep-wizard-header">
-                <h1>🎉 <?php esc_html_e('Welcome to Core Events Pro', 'core-events-pro'); ?></h1>
+                <h1>🎉 <?php esc_html_e('Welcome to EventCore', 'core-events-pro'); ?></h1>
                 <p><?php esc_html_e('Let\'s get your event system ready in 2 minutes.', 'core-events-pro'); ?></p>
                 <div class="cep-steps-nav">
                     <div class="cep-step-dot <?php echo $this->step === '1' ? 'active' : ''; ?>"></div>

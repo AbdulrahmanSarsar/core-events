@@ -1,12 +1,18 @@
 <?php
 
 /**
- * Plugin Name: Core Events Pro
- * Description: The ultimate event management system with Calendar, Sub-events, and REST API.
- * Version: 1.0.0
- * Author: Abdulrahman Sarsar
- * Text Domain: core-events
+ * Plugin Name: EventCore – Advanced Events & Booking Manager
+ * Plugin URI:  https://almanarsoft.com
+ * Description: Complete event management system with an interactive calendar, sub-events (sessions), RSVP & smart waitlist, local QR-code ticketing & check-in, paid tickets via WooCommerce, and a REST API.
+ * Version:     1.0.0
+ * Author:      Abdulrahman Sarsar
+ * Author URI:  https://almanarsoft.com
+ * Requires at least: 5.8
+ * Requires PHP: 7.4
+ * Text Domain: core-events-pro
  * Domain Path: /languages
+ * License:     GPL-2.0-or-later
+ * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  *
  * @package CoreEventsPro
  */

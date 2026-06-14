@@ -249,7 +249,23 @@ class EventTools
         }
 
         // Security: Sanitize the uploaded file path.
-        $file   = sanitize_text_field(wp_unslash($_FILES['cep_csv_file']['tmp_name']));
+        $file = sanitize_text_field(wp_unslash($_FILES['cep_csv_file']['tmp_name']));
+
+        // Security: Ensure this is a genuine PHP upload, not an arbitrary
+        // server path, before we read it.
+        if (! is_uploaded_file($file)) {
+            wp_die(esc_html__('Invalid file upload.', 'core-events-pro'));
+        }
+
+        // Security: Reject anything that is not a plain CSV/text file.
+        $filetype = wp_check_filetype(
+            isset($_FILES['cep_csv_file']['name']) ? sanitize_file_name(wp_unslash($_FILES['cep_csv_file']['name'])) : '',
+            ['csv' => 'text/csv', 'txt' => 'text/plain']
+        );
+        if (empty($filetype['ext'])) {
+            wp_die(esc_html__('Please upload a valid CSV file.', 'core-events-pro'));
+        }
+
         $handle = fopen($file, "r");
 
         if ($handle !== FALSE) {

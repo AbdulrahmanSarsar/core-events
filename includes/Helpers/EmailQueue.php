@@ -77,7 +77,7 @@ class EmailQueue
     {
         $schedules[self::CRON_SCHEDULE] = [
             'interval' => MINUTE_IN_SECONDS,
-            'display'  => __('Every Minute (Core Events Pro Email Queue)', 'core-events-pro'),
+            'display'  => __('Every Minute (EventCore Email Queue)', 'core-events-pro'),
         ];
         return $schedules;
     }

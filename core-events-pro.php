@@ -91,6 +91,10 @@ final class Plugin
         // Helpers
         require_once CEP_PATH . 'includes/Helpers/Utils.php';
         require_once CEP_PATH . 'includes/Helpers/Cron.php';
+        require_once CEP_PATH . 'includes/Helpers/QrGenerator.php';
+        require_once CEP_PATH . 'includes/Helpers/AntiSpam.php';
+        require_once CEP_PATH . 'includes/Helpers/EmailQueue.php';
+        require_once CEP_PATH . 'includes/Helpers/Schema.php';
 
         // Post Types & Taxonomies
         require_once CEP_PATH . 'includes/PostTypes/MainEvent.php';
@@ -147,6 +151,8 @@ final class Plugin
         new Shortcodes\EventViews();
         new Helpers\TemplateLoader();
         new Helpers\Cron();
+        new Helpers\EmailQueue();
+        new Helpers\Schema();
         new Modules\Attendees();
         new Modules\WooCommerce();
         new Modules\Licensing();
@@ -291,6 +297,41 @@ function cep_activate_plugin()
     // Set a transient to trigger the redirect to the setup wizard
     set_transient('_cep_activation_redirect', true, 30);
 }
+
+/**
+ * Register the deactivation hook to clean up scheduled cron jobs.
+ *
+ * Without this, disabling the plugin still leaves orphan WP-Cron entries
+ * that the scheduler keeps trying to run forever.
+ */
+register_deactivation_hook(__FILE__, __NAMESPACE__ . '\\cep_deactivate_plugin');
+
+/**
+ * DEACTIVATION HOOK
+ *
+ * Removes scheduled events created by the plugin. We deliberately do NOT
+ * touch user data (events, attendees, settings) - those only get cleaned
+ * up on full uninstall.
+ *
+ * @return void
+ */
+function cep_deactivate_plugin()
+{
+    $cron_hooks = [
+        'cep_hourly_check',
+        'cep_license_heartbeat',
+        'cep_email_queue_worker',
+    ];
+
+    foreach ($cron_hooks as $hook) {
+        $timestamp = wp_next_scheduled($hook);
+        while ($timestamp) {
+            wp_unschedule_event($timestamp, $hook);
+            $timestamp = wp_next_scheduled($hook);
+        }
+    }
+}
+
 /**
  * Redirect to Setup Wizard after plugin activation.
  */

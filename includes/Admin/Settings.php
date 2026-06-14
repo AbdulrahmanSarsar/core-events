@@ -87,6 +87,9 @@ class Settings
         register_setting('cep_options_group', 'cep_email_confirm_body');
         register_setting('cep_options_group', 'cep_email_remind_sub');
         register_setting('cep_options_group', 'cep_email_remind_body');
+
+        // --- 6. Anti-spam ---
+        register_setting('cep_options_group', 'cep_block_disposable_emails');
     }
 
     /**
@@ -137,6 +140,25 @@ class Settings
                                 <tr>
                                     <th><?php esc_html_e('Hide Past Events', 'core-events-pro'); ?></th>
                                     <td><label><input type="checkbox" name="cep_hide_past_events" value="1" <?php checked(1, get_option('cep_hide_past_events', 0)); ?>> <?php esc_html_e('Auto-hide finished events', 'core-events-pro'); ?></label></td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <!-- 🛡️ Anti-spam -->
+                        <div style="background:#fff; padding:30px; border-radius:8px; box-shadow:0 1px 3px rgba(0,0,0,0.1); margin-bottom:20px;">
+                            <h2 style="margin-top:0; border-bottom:1px solid #eee; padding-bottom:10px;"><?php esc_html_e('🛡️ Anti-spam Protection', 'core-events-pro'); ?></h2>
+                            <p class="description">
+                                <?php esc_html_e('Honeypot, submission-age and per-IP rate-limit checks are always on. The option below adds an extra blocklist for throwaway email providers.', 'core-events-pro'); ?>
+                            </p>
+                            <table class="form-table">
+                                <tr>
+                                    <th><?php esc_html_e('Disposable Emails', 'core-events-pro'); ?></th>
+                                    <td>
+                                        <label>
+                                            <input type="checkbox" name="cep_block_disposable_emails" value="1" <?php checked(1, get_option('cep_block_disposable_emails', 0)); ?>>
+                                            <?php esc_html_e('Block registrations from temporary / disposable email providers', 'core-events-pro'); ?>
+                                        </label>
+                                    </td>
                                 </tr>
                             </table>
                         </div>

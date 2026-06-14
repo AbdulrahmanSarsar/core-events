@@ -24,15 +24,23 @@ if (! defined('WP_UNINSTALL_PLUGIN')) {
 global $wpdb;
 
 /**
- * 1. Drop Custom Database Table.
- * 
- * Permanently delete the `cep_attendees` table from the database.
- * Utilizing $wpdb->prefix ensures compatibility with the site's specific table prefix.
+ * 1. Drop Custom Database Tables.
+ *
+ * Permanently delete the plugin's custom tables from the database.
+ * Utilizing $wpdb->prefix ensures compatibility with the site's specific
+ * table prefix.
+ *
+ * Secure from SQL Injection: the table names are hardcoded and do not
+ * rely on any user input.
  */
-$table_name = $wpdb->prefix . 'cep_attendees';
+$cep_tables = [
+    $wpdb->prefix . 'cep_attendees',
+    $wpdb->prefix . 'cep_email_queue',
+];
 
-// Secure from SQL Injection: The table name is hardcoded and does not rely on any user input.
-$wpdb->query("DROP TABLE IF EXISTS {$table_name}");
+foreach ($cep_tables as $cep_table) {
+    $wpdb->query("DROP TABLE IF EXISTS {$cep_table}");
+}
 
 /**
  * 2. Delete Options from the `wp_options` table.
@@ -43,28 +51,62 @@ $wpdb->query("DROP TABLE IF EXISTS {$table_name}");
  * @var array $options List of option names to be deleted.
  */
 $options = [
+    // Feature toggles
     'cep_enable_time',
     'cep_enable_location',
     'cep_enable_countdown',
     'cep_enable_ics',
     'cep_hide_past_events',
+    // Venue management
+    'cep_location_type',
+    'cep_predefined_locations',
+    // Section labels
     'cep_label_schedule',
     'cep_label_gallery',
     'cep_label_video',
     'cep_label_upcoming',
     'cep_label_past',
+    // UI labels
     'cep_text_session',
     'cep_text_back',
     'cep_text_ends',
     'cep_text_waitlist',
+    // Email templates
     'cep_email_confirm_sub',
     'cep_email_confirm_body',
     'cep_email_remind_sub',
-    'cep_email_remind_body'
+    'cep_email_remind_body',
+    // Anti-spam
+    'cep_block_disposable_emails',
+    // Licensing
+    'core_events_pro_purchase_code',
+    'core_events_pro_license_status',
+    'core_events_pro_activated_domain',
+    'core_events_pro_license_data',
+    'core_events_pro_license_last_check',
+    'core_events_pro_license_last_error',
 ];
 
 foreach ($options as $option) {
     delete_option($option);
+}
+
+/**
+ * Clear scheduled cron events created by the plugin so we do not leave
+ * orphan jobs in the WP-Cron queue after uninstall.
+ */
+$cron_hooks = [
+    'cep_hourly_check',
+    'cep_license_heartbeat',
+    'cep_email_queue_worker',
+];
+
+foreach ($cron_hooks as $hook) {
+    $timestamp = wp_next_scheduled($hook);
+    while ($timestamp) {
+        wp_unschedule_event($timestamp, $hook);
+        $timestamp = wp_next_scheduled($hook);
+    }
 }
 
 /**

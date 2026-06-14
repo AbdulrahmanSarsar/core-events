@@ -15,6 +15,7 @@ if (! defined('ABSPATH')) {
     exit;
 }
 
+use CoreEventsPro\Helpers\AntiSpam;
 use CoreEventsPro\Helpers\Utils;
 
 get_header();
@@ -250,6 +251,7 @@ $lbl_details  = sprintf(esc_html__('%s Details', 'core-events-pro'), $txt_sessio
                                     <input type="hidden" name="event_id" value="<?php echo absint($id); ?>">
                                     <input type="hidden" name="action" value="cep_submit_rsvp">
                                     <?php wp_nonce_field('cep_rsvp_nonce', 'security'); ?>
+                                    <?php AntiSpam::render_fields(); ?>
 
                                     <input type="text" name="name" placeholder="<?php esc_attr_e('Name', 'core-events-pro'); ?>" required style="width:100%; margin-bottom:8px; padding:8px;">
                                     <input type="email" name="email" placeholder="<?php esc_attr_e('Email', 'core-events-pro'); ?>" required style="width:100%; margin-bottom:8px; padding:8px;">

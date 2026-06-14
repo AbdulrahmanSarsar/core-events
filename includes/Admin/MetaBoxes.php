@@ -13,6 +13,9 @@
 
 namespace CoreEventsPro\Admin;
 
+use CoreEventsPro\Helpers\EmailQueue;
+use CoreEventsPro\Helpers\QrGenerator;
+
 if (! defined('ABSPATH')) {
     exit;
 }
@@ -551,12 +554,16 @@ class MetaBoxes
         $qr_html = "";
 
         if (! empty($qr_token)) {
-            $scan_url     = site_url("?cep_qr_scan=" . urlencode($qr_token));
-            $qr_image_url = "https://quickchart.io/qr?text=" . urlencode($scan_url) . "&size=200";
+            $scan_url     = QrGenerator::get_scan_url($qr_token);
+            $qr_image_src = QrGenerator::get_data_uri($scan_url);
 
             $qr_html .= "\n\n" . __('--- YOUR TICKET ---', 'core-events-pro') . "\n";
             $qr_html .= __('Please present this QR code at the entrance:', 'core-events-pro') . "\n";
-            $qr_html .= "<img src='" . esc_url($qr_image_url) . "' alt='QR Ticket'>\n";
+
+            if (! empty($qr_image_src)) {
+                $qr_html .= "<img src='" . esc_attr($qr_image_src) . "' alt='" . esc_attr__('QR Ticket', 'core-events-pro') . "' width='200' height='200'>\n";
+            }
+
             $qr_html .= sprintf(__('Or keep this link: %s', 'core-events-pro'), esc_url($scan_url)) . "\n";
         }
 
@@ -573,7 +580,7 @@ class MetaBoxes
         $headers   = array('Content-Type: text/html; charset=UTF-8');
         $html_body = nl2br($body) . $qr_html;
 
-        wp_mail($to_email, $subject, $html_body, $headers);
+        EmailQueue::queue($to_email, $subject, $html_body, $headers);
     }
 
     /**

@@ -15,6 +15,7 @@ if (! defined('ABSPATH')) {
     exit;
 }
 
+use CoreEventsPro\Helpers\AntiSpam;
 use CoreEventsPro\Helpers\Utils;
 
 get_header();
@@ -276,6 +277,7 @@ $display_status = isset($status_map[$status]) ? $status_map[$status] : ucfirst($
                             <input type="hidden" name="event_id" value="<?php echo absint($id); ?>">
                             <input type="hidden" name="action" value="cep_submit_rsvp">
                             <?php wp_nonce_field('cep_rsvp_nonce', 'security'); ?>
+                            <?php AntiSpam::render_fields(); ?>
 
                             <?php if ($has_subs) : ?>
                                 <div style="margin-bottom:15px;">

@@ -12,6 +12,10 @@
 
 namespace CoreEventsPro\Modules;
 
+use CoreEventsPro\Helpers\AntiSpam;
+use CoreEventsPro\Helpers\EmailQueue;
+use CoreEventsPro\Helpers\QrGenerator;
+
 // Security: Prevent direct file access.
 if (! defined('ABSPATH')) {
     exit;
@@ -44,6 +48,57 @@ class Attendees
 
         // Endpoint: Handle QR Code scanning
         add_action('init', [$this, 'handle_qr_scan']);
+
+        // Endpoint: Stream a generated QR PNG for a stored attendee token
+        add_action('init', [$this, 'handle_qr_image']);
+    }
+
+    /**
+     * Stream a freshly-generated QR PNG for a stored attendee token.
+     *
+     * URL pattern: /?cep_qr_image={token}
+     *
+     * The token must already exist in the attendees table; we never
+     * generate a QR for arbitrary input. This prevents attackers from
+     * using the endpoint to render arbitrary payloads (which a QR
+     * scanner would then execute on the scanning device).
+     *
+     * Browsers and mail clients are sent strong cache headers via
+     * QrGenerator::stream_png() so repeated views do not hammer the
+     * server.
+     *
+     * @return void
+     */
+    public function handle_qr_image()
+    {
+        if (! isset($_GET['cep_qr_image'])) {
+            return;
+        }
+
+        $token = sanitize_text_field(wp_unslash($_GET['cep_qr_image']));
+
+        if ('' === $token) {
+            status_header(400);
+            exit;
+        }
+
+        global $wpdb;
+        $table = $wpdb->prefix . 'cep_attendees';
+
+        // Confirm the token belongs to a real attendee before rendering.
+        $valid = $wpdb->get_var(
+            $wpdb->prepare("SELECT id FROM {$table} WHERE qr_token = %s LIMIT 1", $token)
+        );
+
+        if (! $valid) {
+            status_header(404);
+            exit;
+        }
+
+        // The QR encodes the scan URL, not the raw token, so a single scan
+        // immediately performs check-in for staff.
+        $scan_url = QrGenerator::get_scan_url($token);
+        QrGenerator::stream_png($scan_url);
     }
 
     /**
@@ -59,6 +114,19 @@ class Attendees
         // Security Check: Verify AJAX nonce.
         check_ajax_referer('cep_rsvp_nonce', 'security');
 
+        // Anti-spam: rate-limit per IP first so repeat offenders never even
+        // get to do any database work.
+        $rate = AntiSpam::check_rate_limit();
+        if (is_wp_error($rate)) {
+            wp_send_json_error(['message' => $rate->get_error_message()]);
+        }
+
+        // Anti-spam: honeypot + form age validation.
+        $spam_check = AntiSpam::check($_POST);
+        if (is_wp_error($spam_check)) {
+            wp_send_json_error(['message' => $spam_check->get_error_message()]);
+        }
+
         // Security: Unslash and sanitize inputs safely.
         $event_id_raw = isset($_POST['selected_event_id']) ? $_POST['selected_event_id'] : ($_POST['event_id'] ?? 0);
         $event_id     = absint(wp_unslash($event_id_raw));
@@ -68,6 +136,14 @@ class Attendees
 
         if (! $email || ! $name || ! $event_id) {
             wp_send_json_error(['message' => __('Required fields are missing.', 'core-events-pro')]);
+        }
+
+        // Anti-spam: optionally reject disposable / throwaway email
+        // providers (off by default; toggled in Settings & Help).
+        if (AntiSpam::is_disposable_email($email)) {
+            wp_send_json_error([
+                'message' => __('Please use a permanent email address.', 'core-events-pro'),
+            ]);
         }
 
         global $wpdb;
@@ -108,6 +184,11 @@ class Attendees
         if ($inserted) {
             $attendee_id = $wpdb->insert_id;
 
+            // A successful registration clears the per-IP rate limit so a
+            // legitimate visitor can register a few friends in a row
+            // without tripping the throttle.
+            AntiSpam::reset_rate_limit();
+
             // Send Confirmation Email. Only confirmed attendees get the QR code.
             if ($status === 'confirmed') {
                 $this->send_confirmation_email($email, $name, $event_id, $status, $qr_token);
@@ -145,16 +226,21 @@ class Attendees
         $subject_template = get_option('cep_email_confirm_sub', __('Registration Confirmed: {event_name}', 'core-events-pro'));
         $body_template    = get_option('cep_email_confirm_body', __("Hello {name},\n\nYour registration for {event_name} is {status}.\nDate: {event_date}\n\nBest Regards,", 'core-events-pro'));
 
-        // Prepare QR Code section (using QuickChart API)
+        // Prepare QR Code section. The image is generated locally (no
+        // third-party service) and inlined as a base64 data URI so it
+        // renders in mail clients even when remote images are blocked.
         $qr_html = "";
         if (! empty($qr_token)) {
-            $scan_url     = site_url("?cep_qr_scan=" . urlencode($qr_token));
-            $qr_image_url = "https://quickchart.io/qr?text=" . urlencode($scan_url) . "&size=200";
+            $scan_url     = QrGenerator::get_scan_url($qr_token);
+            $qr_image_src = QrGenerator::get_data_uri($scan_url);
 
-            // i18n: Translate ticket texts
             $qr_html .= "\n\n" . __('--- YOUR TICKET ---', 'core-events-pro') . "\n";
             $qr_html .= __('Please present this QR code at the entrance:', 'core-events-pro') . "\n";
-            $qr_html .= "<img src='" . esc_url($qr_image_url) . "' alt='" . esc_attr__('QR Ticket', 'core-events-pro') . "'>\n";
+
+            if (! empty($qr_image_src)) {
+                $qr_html .= "<img src='" . esc_attr($qr_image_src) . "' alt='" . esc_attr__('QR Ticket', 'core-events-pro') . "' width='200' height='200'>\n";
+            }
+
             $qr_html .= sprintf(__('Or keep this link: %s', 'core-events-pro'), esc_url($scan_url)) . "\n";
         }
 
@@ -171,11 +257,12 @@ class Attendees
         $subject = str_replace(array_keys($replacements), array_values($replacements), $subject_template);
         $body    = str_replace(array_keys($replacements), array_values($replacements), $body_template);
 
-        // Send email as HTML to render the QR image properly.
-        $headers   = array('Content-Type: text/html; charset=UTF-8');
+        // Hand off to the asynchronous email queue. Using HTML headers so
+        // the QR image renders inline.
+        $headers   = ['Content-Type: text/html; charset=UTF-8'];
         $html_body = nl2br($body) . $qr_html;
 
-        wp_mail($to_email, $subject, $html_body, $headers);
+        EmailQueue::queue($to_email, $subject, $html_body, $headers);
     }
 
     /**

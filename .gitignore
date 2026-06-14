@@ -1,0 +1,16 @@
+# Claude Code local state
+.claude/
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.log
+
+# Build / distribution artifacts
+/dist/
+/build/
+*.zip
+
+# Dependencies (none required at runtime — phpqrcode is vendored intentionally)
+/node_modules/
+/vendor/composer/

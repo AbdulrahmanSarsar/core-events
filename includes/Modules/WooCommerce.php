@@ -13,6 +13,9 @@
 
 namespace CoreEventsPro\Modules;
 
+use CoreEventsPro\Helpers\EmailQueue;
+use CoreEventsPro\Helpers\QrGenerator;
+
 // Security: Prevent direct file access.
 if (! defined('ABSPATH')) {
     exit;
@@ -245,13 +248,17 @@ class WooCommerce
 
             $ticket_count = 1;
             foreach ($tokens as $token) {
-                $scan_url     = site_url("?cep_qr_scan=" . urlencode($token));
-                $qr_image_url = "https://quickchart.io/qr?text=" . urlencode($scan_url) . "&size=150";
+                $scan_url     = QrGenerator::get_scan_url($token);
+                $qr_image_src = QrGenerator::get_data_uri($scan_url);
 
                 $body .= "<hr style='border:0; border-top:1px dashed #eee; margin:15px 0;'>";
                 $body .= "<h4>" . sprintf(esc_html__('Ticket #%d', 'core-events-pro'), $ticket_count) . "</h4>";
                 $body .= "<p>" . esc_html__('Please present this QR code at the entrance:', 'core-events-pro') . "</p>";
-                $body .= "<img src='" . esc_url($qr_image_url) . "' alt='" . esc_attr__('QR Ticket', 'core-events-pro') . "' style='margin-bottom:10px;'><br>";
+
+                if (! empty($qr_image_src)) {
+                    $body .= "<img src='" . esc_attr($qr_image_src) . "' alt='" . esc_attr__('QR Ticket', 'core-events-pro') . "' width='200' height='200' style='margin-bottom:10px;'><br>";
+                }
+
                 $body .= "<a href='" . esc_url($scan_url) . "'>" . esc_html__('Or click here to view ticket link', 'core-events-pro') . "</a>";
                 $ticket_count++;
             }
@@ -261,6 +268,6 @@ class WooCommerce
         $body .= "<p>" . esc_html__('Best Regards,', 'core-events-pro') . "<br>" . get_bloginfo('name') . "</p>";
 
         $headers = ['Content-Type: text/html; charset=UTF-8'];
-        wp_mail($to_email, $subject, $body, $headers);
+        EmailQueue::queue($to_email, $subject, $body, $headers);
     }
 }

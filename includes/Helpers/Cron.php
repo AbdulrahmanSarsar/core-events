@@ -159,8 +159,15 @@ class Cron
             $subject = str_replace(array_keys($replacements), array_values($replacements), $subject_template);
             $body    = str_replace(array_keys($replacements), array_values($replacements), $body_template);
 
-            // Security: Sanitize the email address before sending.
-            wp_mail(sanitize_email($att->email), $subject, $body);
+            // Hand off to the asynchronous email queue. Sending hundreds
+            // of reminders synchronously here would otherwise time out the
+            // hourly cron run on shared hosting.
+            EmailQueue::queue(
+                sanitize_email($att->email),
+                $subject,
+                $body,
+                ['Content-Type: text/plain; charset=UTF-8']
+            );
         }
     }
 }

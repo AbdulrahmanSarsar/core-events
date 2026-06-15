@@ -186,24 +186,38 @@ class QrGenerator
             return '';
         }
 
-        self::load_library();
-
-        if (! class_exists('\\QRcode')) {
-            return '';
-        }
-
         $size   = max(1, (int) $size);
         $margin = max(0, (int) $margin);
 
-        ob_start();
+        // The bundled phpqrcode is a legacy library that emits E_DEPRECATED
+        // notices under PHP 8 (optional-before-required parameters) at parse
+        // time. Silence only the library's own noise so it never reaches the
+        // error log or a misconfigured display_errors output, then restore
+        // the previous reporting level no matter what happens.
+        $previous = error_reporting();
+        error_reporting($previous & ~E_DEPRECATED & ~E_NOTICE & ~E_WARNING);
+
+        $png = '';
+
         try {
-            // Defined by phpqrcode: 0 = L, 1 = M, 2 = Q, 3 = H.
-            // Level M is the standard for ticket scans (15% damage tolerance).
-            \QRcode::png((string) $text, false, 1, $size, $margin);
-        } catch (\Throwable $e) {
-            ob_end_clean();
-            return '';
+            self::load_library();
+
+            if (class_exists('\\QRcode')) {
+                ob_start();
+                try {
+                    // Defined by phpqrcode: 0 = L, 1 = M, 2 = Q, 3 = H.
+                    // Level M is the standard for ticket scans (15% damage tolerance).
+                    \QRcode::png((string) $text, false, 1, $size, $margin);
+                    $png = (string) ob_get_clean();
+                } catch (\Throwable $e) {
+                    ob_end_clean();
+                    $png = '';
+                }
+            }
+        } finally {
+            error_reporting($previous);
         }
-        return (string) ob_get_clean();
+
+        return $png;
     }
 }
